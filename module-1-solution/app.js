@@ -7,18 +7,19 @@ angular.module('LunchCheck', [])
 LunchCheckController.$inject = ['$scope'];
 function LunchCheckController($scope){
 
-	$scope.errorMessage = "";
+	//$scope.errorMessage = "";
 	$scope.itemList = "";
 	$scope.validate = validate;
 	$scope.customStyle = {};
 
 	function validate(itemList){
 		$scope.errorMessage = "";
+		$scope.customStyle = {};
 		var numItems = getNumberOfItems(itemList);
 		switch ( true ) {
 			case (numItems == 0):
 				$scope.errorMessage = "Please enter data first";
-				$scope.customStyle = {};
+				$scope.customStyle.colorClass = "red";
 				break;
 			case ( numItems <= 3):
 				$scope.errorMessage = "Enjoy!";
@@ -26,7 +27,7 @@ function LunchCheckController($scope){
 				break;
 			case ( numItems > 3):
 				$scope.errorMessage = "Too much!";
-				$scope.customStyle.colorClass = "red";
+				$scope.customStyle.colorClass = "green";
 				break;
 		}
 	};

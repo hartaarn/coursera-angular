@@ -7,13 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
-      .message { font-size: 1.3em; font-weight: bold; }
-      .green{
+      .message { 
+        font-size: 1.3em; 
+        font-weight: bold;        
+      }
+
+      .message.green{
         color:green;
       }
-      .red{
+      .message.red{
         color:red;
       }
+      input.red {
+          border: 1px red solid;
+      }
+      input.green {
+          border: 1px green solid;
+      }
+
     </style>
   </head>
 <body>
@@ -24,7 +35,7 @@
             An empty item, i.e., , , or ,, is excluded from the final item count <br />
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control" ng-model="itemList">
+             class="form-control" ng-model="itemList" ng-class="customStyle.colorClass">
          </div>
          <div class="form-group">
              <button class="btn btn-default" ng-click="validate(itemList);">Check If Too Much</button>
