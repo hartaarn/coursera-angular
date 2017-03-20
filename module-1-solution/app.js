@@ -36,7 +36,7 @@ function LunchCheckController($scope){
 		var comma = ",";
 		var items = list.split(comma);
 
-		// filter our empty strings in array of items
+		// filter out empty strings in array of items
 		var filteredItems = items.filter(isNotEmpty);
 
 		return filteredItems.length;
