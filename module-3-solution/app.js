@@ -15,7 +15,7 @@ function FoundItemsDirective() {
     scope: {
     	found: '<',
     	onRemove: '&',
-    	//resultMessage:  '@message'
+    	resultMessage:  '@message'
     },
     controller: FoundItemsDirectiveController,
     controllerAs: 'menu',
@@ -41,14 +41,14 @@ function NarrowItDownController(MenuSearchService) {
 
   menu.getMatchedMenuItems = function () {
 
-  	//menu.message = "";
+  	menu.message = "";
     var promise = MenuSearchService.getMatchedMenuItems(menu.searchTerm);
 
     promise.then(function (response) {
       menu.found = response;
-      // if (!menu.found.length) {
-      // 	menu.message = "Nothing found";
-      // }
+      if (!menu.found.length) {
+      	menu.message = "Nothing found";
+      }
     })
     .catch(function (error) {
       console.log(error);
