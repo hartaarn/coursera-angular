@@ -28,9 +28,9 @@ function FoundItemsDirective() {
 function FoundItemsDirectiveController() {
 	var menu = this;
 
-	menu.isEmpty = function () {
-    	return typeof menu.found !== 'undefined' && menu.found.length === 0;
-  	};
+	// menu.isEmpty = function () {
+ //    	return typeof menu.found !== 'undefined' && menu.found.length === 0;
+ //  	};
 }
 
 
