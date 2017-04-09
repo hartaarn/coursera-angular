@@ -1,13 +1,15 @@
+<div class="breadcrumbs">
 <a ui-sref="home">Home</a> &lt;
 <a ui-sref="categories">Categories</a> &lt;
 <span>{{itemsCtrl.categoryDetails.name}}</span>
+</div>
 
 <h2>{{itemsCtrl.categoryDetails.name}}</h2>
 <div>{{itemsCtrl.categoryDetails.special_instructions}}</div>
 
 <ul>
   <li ng-repeat="item in itemsCtrl.items">
-    {{ item.short_name }} - {{ item.name }} - (large: {{item.price_large | currency}} | small: {{ item.price_small | currency}}) <br/>
-    {{ item.description }}
+    <span class="short-name">{{ item.short_name }}</span> - <span class="thick">{{ item.name }}</span> - (<span ng-if="item.large_portion_name !== null;">{{item.large_portion_name}}: </span>{{item.price_large | currency}}<span ng-if="item.small_portion_name !== null;"> | {{item.small_portion_name}}: {{ item.price_small | currency}}</span>)
+    <div class="item-description">{{ item.description }}</div>
   </li>
 </ul>
