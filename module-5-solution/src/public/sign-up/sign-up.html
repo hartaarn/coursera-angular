@@ -1,0 +1,82 @@
+<div class="container">
+
+	<div ng-if="signUpCtrl.signUpSuccess">Your information has been saved</div>
+
+	<div ng-if="!signUpCtrl.signUpSuccess">
+	<h3>Sign up for our newsletter</h3>
+	    <fieldset>
+	      <legend></legend>
+	      <form name='signUpForm' novalidate>
+
+	        <input class="form-input" type="text" name="firstname" placeholder="First Name"
+	          ng-model="signUpCtrl.user.firstname"
+	          required>
+	          {{ signUpCtrl.user.firstname }}
+	          <span
+	            ng-if="signUpForm.firstname.$error.required && signUpForm.firstname.$touched">
+	            required
+	          </span>
+	          <br>
+
+	        <input class="form-input" type="text" name="lastname" placeholder="Last Name"
+	          ng-model="signUpCtrl.user.lastname"
+	          required>
+	          {{ signUpCtrl.user.lastname }}
+	          <span
+	            ng-if="signUpForm.lastname.$error.required && signUpForm.lastname.$touched">
+	            required
+	          </span>
+	          <br>
+
+	        <input class="form-input" type="email" name="email" placeholder="Email"
+	          ng-model="signUpCtrl.user.email"
+	          required>
+	          {{ signUpCtrl.user.email }}
+	          <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+	            Must be a valid email address: handle@domain format
+	          </span>
+	          <br>
+
+	        <input class="form-input" type="text" name="phone" placeholder="Phone ###-###-####"
+	          ng-model="signUpCtrl.user.phone"
+	          pattern="(\d{3})-(\d{3})-(\d{4})"
+	          required>
+	          {{ signUpCtrl.user.phone }}
+	          <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+	            Phone must be in the format ###-###-####.
+	          </span>
+	          <br>
+
+	        <input class="form-input" type="text" name="favitem" placeholder="Favourite Item"
+	          ng-model="signUpCtrl.favItemShortName"
+	          ng-blur="signUpCtrl.validateFavItem();"
+	          required>
+	          <!-- <span
+	            ng-if="signUpForm.favitem.$error.required && signUpForm.favitem.$touched">
+	            required
+	          </span> -->
+	          <span
+	            ng-if="(signUpCtrl.searchInvalid) && signUpForm.favitem.$touched">
+	            No such item found
+	          </span>
+	          <br>
+
+	        <button
+	          ng-disabled="signUpForm.$invalid"
+	          ng-click="signUpCtrl.submit()">Submit</button>
+
+	          <div style="margin-top: 10px;">
+	            Form valid? {{ signUpForm.$valid }}
+	          </div>
+	      </form>
+	    </fieldset>
+
+	    <div id="info" ng-if="signUpCtrl.saved">
+	      firstname: {{ signUpCtrl.user.firstname}} <br>
+	      Email: {{ signUpCtrl.user.email}} <br>
+	      Phone: {{ signUpCtrl.user.phone }} <br>
+	      favItem:  {{ signUpCtrl.favItemShortName }}
+	    </div>
+	</div>
+
+</div>
