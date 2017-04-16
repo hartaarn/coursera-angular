@@ -167,4 +167,30 @@ h3.menu-item-title {
 
 .form-input {
   color: #222222;
+  border: none;
+  padding: 5px 10px 7px;
+}
+
+.form button {
+  border: none;
+  color: #fff;
+  background-color: #557c3e;
+  width: 150px;
+  padding: 10px 10px 12px;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.ng-touched.ng-valid {
+  border: 2px #557c3e solid;
+}
+
+.ng-touched.ng-invalid {
+  border: 2px red solid;
+}
+
+.error-message {
+  display: inline;
+  margin-left: 6px;
+  display:inline;
 }

@@ -16,6 +16,10 @@ function UserService() {
     service.user = user;
   };
 
+  service.setFavItemShortName = function(shortName){
+    service.setFavItemShortName = shortName;
+  }
+
   service.getUser = function() {
     return service.user;
   };
@@ -24,6 +28,9 @@ function UserService() {
     return service.favItem;
   }
 
+  service.getFavItemShortName = function(){
+    return service.favItemShortName;
+  }
  
 }
 

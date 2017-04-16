@@ -14,8 +14,10 @@ function SignUpController(UserService, MenuService, $filter) {
   $ctrl.favItemShortName = '';
   $ctrl.found = false;
 
-  $ctrl.user = UserService.getUser();
-  $ctrl.favItem = UserService.getFavItem();
+  // partially working - used to pre-fill form data
+  // $ctrl.user = UserService.getUser();
+  // $ctrl.favItem = UserService.getFavItem();
+  // $ctrl.favItemShortName = UserService.getFavItemShortName();
 
   $ctrl.submit = function () {
   	$ctrl.saved = true;
@@ -27,6 +29,7 @@ function SignUpController(UserService, MenuService, $filter) {
       	$ctrl.searchInvalid = false;
       	UserService.setFavItem(response);
       	UserService.setUser($ctrl.user);
+      	UserService.setFavItemShortName( $filter('uppercase')($ctrl.favItemShortName) );
       	$ctrl.signUpSuccess = true;
       	return true;
      })

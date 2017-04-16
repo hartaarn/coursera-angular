@@ -5,17 +5,19 @@
 	<div ng-if="!myInfoCtrl.user">Not Signed Up Yet. <a ui-sref="public.sign-up">Sign up Now!</a></div>
 
 	<div ng-if="myInfoCtrl.user">
+
 	  <div>
-	    First name: {{myInfoCtrl.user.firstname}} <br />
-	    Last name: {{myInfoCtrl.user.lastname}} <br />
-	    Email address: {{myInfoCtrl.user.email}} <br />
-	    Phone number: {{myInfoCtrl.user.phone}} <br />
+	    {{myInfoCtrl.user.firstname}} {{myInfoCtrl.user.lastname}} <br />
+	    {{myInfoCtrl.user.email}} <br />
+	    {{myInfoCtrl.user.phone}} <br />
 	  </div>
 
 		<div>
-	  		<h4>Favorite</h4>
+	  		<h4>Favorite Item</h4>
 	  		<menu-item menu-item="myInfoCtrl.menuItem"></menu-item>
 		</div>
 
+
 	</div>
+
 </div>
