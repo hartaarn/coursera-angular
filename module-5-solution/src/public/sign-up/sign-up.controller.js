@@ -8,11 +8,10 @@ angular.module('public')
         require: 'ngModel',
         link: function(scope, element, attr, ctrl) {
             function itemValidation(value) {
-            	console.log('in itemValidation');
                 MenuService.getMenuItem($filter('uppercase')(value)).then(function(){
                 	ctrl.$setValidity('validItem', true);
                 }).catch(function(){
-                	ctrl.$setValidity('validItem', false);
+                	ctrl.$setValidity('validItem',  false);
                 })
 
                 return value;
