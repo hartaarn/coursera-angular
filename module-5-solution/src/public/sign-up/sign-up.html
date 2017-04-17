@@ -71,16 +71,25 @@
 	    <div class="row">
 	    	<div class="form-group col-xs-6 col-lg-3">
 	    	<label for="favitem">Favourite Item</label>
-	        <input class="form-input form-control" type="text" name="favitem" placeholder="Item code"
+	    	<span class="form-note">*note to marker:  I have implemented the bonus.  It is implemented such that the validation is called automatically (using debounce feature) after just under a second (no removing focus from field necessary).</span>
+	    	<!-- <input class="form-input form-control" type="text" name="favitem" placeholder="Item code"
 	          ng-model="signUpCtrl.favItemShortName"
 	          ng-blur="signUpCtrl.validateFavItem();"
-	          required>
+	          required> -->
+	        <input class="form-input form-control" type="text" name="favitem" placeholder="Item code"
+	          ng-model="signUpCtrl.favItemShortName"
+	          ng-model-options="{ debounce: 800 }"
+	          required item-exists><!--validItem: {{signUpForm.$error.validItem}}    { updateOn: 'blur' }  -->
 	          <!-- <span
 	            ng-if="signUpForm.favitem.$error.required && signUpForm.favitem.$touched">
 	            required
 	          </span> -->
-	          <span
+	          <!-- <span
 	            ng-if="(signUpCtrl.searchInvalid) && signUpForm.favitem.$touched">
+	            No such item found
+	          </span> -->
+	          <span
+	            ng-if="(!signUpForm.favitem.$valid) && signUpForm.favitem.$touched">
 	            No such item found
 	          </span>
 	          <br>

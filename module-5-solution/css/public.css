@@ -194,3 +194,7 @@ h3.menu-item-title {
   margin-left: 6px;
   display:inline;
 }
+
+.form-note {
+  font-size: .6em;
+}
